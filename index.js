@@ -1,13 +1,4 @@
-  require('dotenv').config();
-  const express = require('express');
-  const mongoose = require('mongoose');
-  const Issue = require('./Issue');
-  const authRoutes = require('./auth');
-  const { verifyToken, requireAdmin } = require('./authMiddleware');
-  const upload = require('./upload');
-
-  const app = express();
-  const PORT = process.env.PORT || 5000;
+ 
 
   // Middleware to parse JSON request bodies
   app.use(express.json());
