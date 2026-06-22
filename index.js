@@ -1,25 +1,32 @@
- 
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const Issue = require('./Issue');
+const authRoutes = require('./auth');
+const { verifyToken, requireAdmin } = require('./authMiddleware');
+const upload = require('./upload');
 
-  // Middleware to parse JSON request bodies
-  app.use(express.json());
-  app.use('/auth', authRoutes);
-  app.use(express.static('public'));
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-  // Connect to MongoDB
-  mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch((err) => console.log('MongoDB connection error:', err));
+// Middleware to parse JSON request bodies
+app.use(express.json());
+app.use('/auth', authRoutes);
+app.use(express.static('public'));
 
-  // Test route
-  app.get('/', (req, res) => {
-    res.send('Civic Issue Reporter API is running');
-  });
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.log('MongoDB connection error:', err));
 
-  // Create a new issue
+// Test route
+app.get('/', (req, res) => {
+  res.send('Civic Issue Reporter API is running');
+});
+
+// Create a new issue
 app.post('/issues', verifyToken, upload.single('image'), async (req, res) => {
   try {
-    console.log('SERVER RECEIVED BODY:', req.body);
-console.log('SERVER RECEIVED FILE:', req.file);
     const issueData = {
       ...req.body,
       imageUrl: req.file ? req.file.path : null
@@ -33,7 +40,6 @@ console.log('SERVER RECEIVED FILE:', req.file);
   }
 });
 
-  // Get all issues
 // Get all issues
 app.get('/issues', async (req, res) => {
   try {
@@ -74,6 +80,6 @@ app.delete('/issues/:id', verifyToken, requireAdmin, async (req, res) => {
   }
 });
 
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
