@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civic Issue Reporter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.1.0/iconfont/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Civic Issue Reporter</h1>
+    <p>Report local issues. Track their progress.</p>
+  </header>
+
+  <div class="category-grid">
+  <div class="category-chip" data-category="Pothole">
+    <div class="icon-box"><i class="ti ti-circle-dot"></i></div>
+    <span>Pothole</span>
+  </div>
+  <div class="category-chip" data-category="Streetlight">
+    <div class="icon-box"><i class="ti ti-bulb-off"></i></div>
+    <span>Streetlight</span>
+  </div>
+  <div class="category-chip" data-category="Garbage">
+    <div class="icon-box"><i class="ti ti-trash"></i></div>
+    <span>Garbage</span>
+  </div>
+  <div class="category-chip" data-category="Water Leakage">
+    <div class="icon-box"><i class="ti ti-droplet"></i></div>
+    <span>Water leak</span>
+  </div>
+</div>
+
+<div id="user-bar">
+  <span id="user-greeting"></span>
+  <button id="logout-btn">Logout</button>
+</div>
+
+  <main>
+    <section id="report-form-section">
+      <h2>Report an Issue</h2>
+      <form id="issue-form">
+        <input type="text" id="title" placeholder="Issue title" required>
+        <textarea id="description" placeholder="Describe the issue" required></textarea>
+
+     <input type="hidden" id="category" value="Other">
+
+        <input type="text" id="location" placeholder="Location" required>
+
+        <button type="submit">Submit Issue</button>
+      </form>
+    </section>
+
+    <section id="issues-list-section">
+      <h2>Reported Issues</h2>
+      <div id="issues-container">
+        <!-- Issues will be inserted here by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

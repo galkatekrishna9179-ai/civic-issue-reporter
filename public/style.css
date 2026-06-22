@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0A0A0F;
+  color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---- Header / Hero ---- */
+header {
+  position: relative;
+  padding: 60px 24px 50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,77,255,0.45) 0%, rgba(124,77,255,0.15) 40%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+header h1 {
+  position: relative;
+  z-index: 1;
+  font-weight: 800;
+  font-size: 38px;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+header p {
+  position: relative;
+  z-index: 1;
+  color: #B8B8C8;
+  font-size: 15px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ---- User bar ---- */
+#user-bar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2A2A38;
+}
+
+#user-greeting {
+  font-size: 14px;
+  color: #B8B8C8;
+  font-weight: 500;
+}
+
+#logout-btn {
+  background: transparent;
+  border: 1px solid #2A2A38;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#logout-btn:hover {
+  background: #15151D;
+  border-color: #6C4FFF;
+}
+
+/* ---- Main layout ---- */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ---- Form ---- */
+form {
+  background: #15151D;
+  border: 1px solid #2A2A38;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  border: 1px solid #2A2A38;
+  border-radius: 8px;
+  background: #0A0A0F;
+  color: #FFFFFF;
+  transition: border-color 0.2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #6B6B7D;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #6C4FFF;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+form button[type="submit"] {
+  background: #6C4FFF;
+  color: #FFFFFF;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background: #5A3FE0;
+  transform: translateY(-2px);
+}
+
+form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* ---- Category icon grid (hero decoration) ---- */
+.category-grid {
+  max-width: 800px;
+  margin: -10px auto 40px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.category-chip {
+  background: #15151D;
+  border: 1px solid #2A2A38;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.category-chip .icon-box {
+  width: 32px;
+  height: 32px;
+  background: #1F1A3D;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  color: #8B7FFF;
+  font-size: 16px;
+}
+
+.category-chip span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* ---- Issue cards ---- */
+#issues-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.issue-card {
+  background: #15151D;
+  border: 1px solid #2A2A38;
+  border-radius: 12px;
+  padding: 18px 20px;
+  position: relative;
+  animation: fadeUp 0.4s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ticket-id {
+  font-family: 'JetBrains Mono', monospace;
+  color: #8B7FFF;
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.issue-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.issue-card p {
+  font-size: 13px;
+  color: #B8B8C8;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.status-badge {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.Pending {
+  background: rgba(255, 184, 0, 0.15);
+  color: #FFB800;
+}
+
+.status-badge.Resolved {
+  background: rgba(46, 196, 182, 0.15);
+  color: #2EC4B6;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.resolve-btn, .delete-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.resolve-btn {
+  background: rgba(46, 196, 182, 0.15);
+  color: #2EC4B6;
+}
+
+.delete-btn {
+  background: rgba(226, 75, 74, 0.15);
+  color: #E24B4A;
+}
+
+.resolve-btn:hover, .delete-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+
+/* ---- Auth pages ---- */
+.auth-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.auth-container h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 18px;
+  background: #15151D;
+  border: 1px solid #2A2A38;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 9px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #B8B8C8;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tab-btn.active {
+  background: #6C4FFF;
+  color: #FFFFFF;
+}
+
+#login-form, #signup-form {
+  background: #15151D;
+  border: 1px solid #2A2A38;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#login-form button[type="submit"], #signup-form button[type="submit"] {
+  background: #6C4FFF;
+  color: #FFFFFF;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+#login-form button[type="submit"]:hover, #signup-form button[type="submit"]:hover {
+  background: #5A3FE0;
+  transform: translateY(-2px);
+}
+
+.error-text {
+  color: #E24B4A;
+  font-size: 13px;
+}
+
+/* ---- Animations & transitions ---- */
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header h1, header p {
+  animation: heroFadeIn 0.6s ease forwards;
+}
+
+header p {
+  animation-delay: 0.1s;
+}
+
+@keyframes chipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-chip {
+  opacity: 0;
+  animation: chipFadeIn 0.4s ease forwards;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.category-chip:nth-child(1) { animation-delay: 0.15s; }
+.category-chip:nth-child(2) { animation-delay: 0.25s; }
+.category-chip:nth-child(3) { animation-delay: 0.35s; }
+.category-chip:nth-child(4) { animation-delay: 0.45s; }
+
+.category-chip:hover {
+  transform: translateY(-3px);
+  border-color: #6C4FFF;
+  cursor: default;
+}
+
+.category-chip.selected {
+  border-color: #6C4FFF;
+  background: linear-gradient(135deg, #6C4FFF, #4A2FD9);
+}
+
+.category-chip.selected .icon-box {
+  background: rgba(255,255,255,0.2);
+  color: #FFFFFF;
+}
+
+.category-chip.selected span {
+  color: #FFFFFF;
+}
+
+.issue-card {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.issue-card:hover {
+  border-color: #3D3D52;
+}
+
+.issue-card:nth-child(1) { animation-delay: 0.05s; }
+.issue-card:nth-child(2) { animation-delay: 0.1s; }
+.issue-card:nth-child(3) { animation-delay: 0.15s; }
+.issue-card:nth-child(4) { animation-delay: 0.2s; }
+.issue-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes pulseResolved {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.status-badge.just-resolved {
+  animation: pulseResolved 0.4s ease;
+}
+
+.tab-btn, #logout-btn, .resolve-btn, .delete-btn, form button[type="submit"] {
+  transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
