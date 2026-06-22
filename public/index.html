@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.1.0/iconfont/tabler-icons.min.css">
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.35.0/tabler-icons.min.css">
 </head>
 <body>
 
@@ -51,8 +52,20 @@
 
      <input type="hidden" id="category" value="Other">
 
-        <input type="text" id="location" placeholder="Location" required>
-
+        <div class="location-row">
+  <input type="text" id="location" placeholder="Location" required>
+  <button type="button" id="detect-location-btn">📍 Use my location</button>
+</div>
+<div class="upload-area" id="upload-area">
+  <input type="file" id="image" accept="image/*" class="hidden-file-input">
+  <div class="upload-placeholder" id="upload-placeholder">
+    <div class="upload-icon"><i class="ti ti-camera"></i></div>
+    <p>Click to add a photo</p>
+    <span>Optional — JPG or PNG</span>
+  </div>
+  <img id="image-preview" class="hidden" alt="Preview">
+  <button type="button" id="remove-image-btn" class="hidden">✕ Remove</button>
+</div>
         <button type="submit">Submit Issue</button>
       </form>
     </section>

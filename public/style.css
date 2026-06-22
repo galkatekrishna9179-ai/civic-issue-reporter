@@ -471,3 +471,97 @@ header p {
 .tab-btn, #logout-btn, .resolve-btn, .delete-btn, form button[type="submit"] {
   transition: transform 0.15s ease, background 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 }
+.location-row {
+  display: flex;
+  gap: 8px;
+}
+
+.location-row input {
+  flex: 1;
+}
+
+#detect-location-btn {
+  background: #1F1A3D;
+  color: #8B7FFF;
+  border: 1px solid #2A2A38;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#detect-location-btn:hover {
+  background: #2A2350;
+  transform: translateY(-1px);
+}
+
+.issue-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.upload-area {
+  position: relative;
+  border: 1.5px dashed #2A2A38;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.upload-area:hover {
+  border-color: #6C4FFF;
+  background: #15151D;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.upload-placeholder {
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 24px;
+  color: #6C4FFF;
+  margin-bottom: 6px;
+}
+
+.upload-placeholder p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.upload-placeholder span {
+  font-size: 12px;
+  color: #6B6B7D;
+}
+
+#image-preview {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+#remove-image-btn {
+  display: block;
+  margin: 10px auto 0;
+  background: rgba(226, 75, 74, 0.15);
+  color: #E24B4A;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+#remove-image-btn:hover {
+  background: rgba(226, 75, 74, 0.25);
+}

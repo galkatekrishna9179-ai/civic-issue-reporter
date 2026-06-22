@@ -26,6 +26,10 @@ const issueSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    imageUrl: {
+  type: String,
+  default: null
+}
 });
 module.exports=mongoose.model('Issue',issueSchema);

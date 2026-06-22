@@ -4,6 +4,7 @@
   const Issue = require('./Issue');
   const authRoutes = require('./auth');
   const { verifyToken, requireAdmin } = require('./authMiddleware');
+  const upload = require('./upload');
 
   const app = express();
   const PORT = process.env.PORT || 5000;
@@ -24,15 +25,22 @@
   });
 
   // Create a new issue
-  app.post('/issues', verifyToken, async (req, res)=> {
-    try {
-      const newIssue = new Issue(req.body);
-      const savedIssue = await newIssue.save();
-      res.status(201).json(savedIssue);
-    } catch (err) {
-      res.status(400).json({ error: err.message });
-    }
-  });
+app.post('/issues', verifyToken, upload.single('image'), async (req, res) => {
+  try {
+    console.log('SERVER RECEIVED BODY:', req.body);
+console.log('SERVER RECEIVED FILE:', req.file);
+    const issueData = {
+      ...req.body,
+      imageUrl: req.file ? req.file.path : null
+    };
+
+    const newIssue = new Issue(issueData);
+    const savedIssue = await newIssue.save();
+    res.status(201).json(savedIssue);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
   // Get all issues
 // Get all issues
